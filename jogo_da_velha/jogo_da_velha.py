@@ -1,36 +1,36 @@
+import os 
+
 grade = [
     [" "," "," "],
     [" "," "," "],
     [" "," "," "]
 ]
 
-def grade_jogo(grade):  #exibir a grade do jogo
-    for linha in grade:
-        print(" | ".join(linha))
-        print("-" * 10)
+def grade_jogo(grade):  
+    for i in range(len(grade)):
+        print(" " + " | ".join(grade[i]))
+        if i < len(grade) - 1:
+            print("---+---+---")
 
 
-def vencedor(grade, jogador): #verifica o vencedor
+def vencedor(grade, jogador):
 
-    #verificar linha
     for linha in grade:
         if all(jogada == jogador for jogada in linha):
             return True
         
-
-    #verificar coluna
+    
     for coluna in range(3):
         if all(grade[linha][coluna] == jogador for linha in range(3)):
             return True
         
 
-    #verificar diagonal
     if all(grade[i][i] == jogador for i in range(3)) or all(grade[i][2 - i] == jogador for i in range(3)):
         return True
     
 
 
-def jogar_(grade, jogador, linha, coluna): #substitui o espaço vazio pela jogada
+def jogar_(grade, jogador, linha, coluna): 
      if grade[linha][coluna] == " ":
         grade[linha][coluna] = jogador
         return True
@@ -40,31 +40,48 @@ def jogar_(grade, jogador, linha, coluna): #substitui o espaço vazio pela jogad
 
 
 def jogo_da_velha():
-    grade = [
-    [" "," "," "],
-    [" "," "," "],
-    [" "," "," "]
-    ]
-
-    jogador = "X" #define que a primeira jogada sera do jogador x
     while True:
-        grade_jogo(grade)
-        linha = int(input(f"Jogador ({jogador}) Digite a linha 0, 1, 2: "))
-        coluna = int(input(f"Jogador ({jogador}) Digite a coluna 0, 1, 2: "))
-        print("\n")
+       
+        grade = [
+            [" "," "," "],
+            [" "," "," "],
+            [" "," "," "]
+        ]
 
-        if linha < 0 or linha > 2 or coluna < 0 or coluna > 2: #verifica se a jogada1
-            print("Jogada inválida. Jogue novamente!")
-            continue
-        if jogar_(grade, jogador, linha, coluna):
-            if vencedor(grade, jogador):
-                grade_jogo(grade)
-                print(f"{jogador} Venceu!!!")
-                break
-            elif " " not in [jogada for linha in grade for jogada in linha]:
-                grade_jogo(grade)
-                print("Empate!!")
-                break
-            jogador = "O" if jogador == "X" else "X"
+        jogador = "X" 
+        while True:
+            os.system("cls")
+            print("----------Jogo da Velha----------\n")
+            print("OBS!!: O x é o primeiro jogador\n")
+            print("Regra 1 - Escolha número entre: 0, 1 ou 2 para definir a sua linha e a coluna.")
+            print("Regra 2 - Conseguir formar uma linha reta ou diagonal de três símbolos iguais (X ou O).")
+            print("Regra 3 - Se todas as posições forem ocupadas e nenhum jogador conseguir uma sequência de três símbolos iguais, termina em empate.\n\n")
+            grade_jogo(grade)
+            
+            linha = int(input(f"\nJogador ({jogador}) Digite a linha 0, 1, 2: "))
+            coluna = int(input(f"Jogador ({jogador}) Digite a coluna 0, 1, 2: "))
+            print("\n")
+
+            if linha < 0 or linha > 2 or coluna < 0 or coluna > 2: 
+                print("Jogada inválida. Jogue novamente! \n")
+                continue
+            if jogar_(grade, jogador, linha, coluna):
+                if vencedor(grade, jogador):
+                    os.system("cls")
+                    grade_jogo(grade)
+                    print(f"\nO jogador ({jogador}) Venceu!!!")
+                    break
+                elif " " not in [jogada for linha in grade for jogada in linha]:
+                    os.system("cls")
+                    grade_jogo(grade)
+                    print("\nEmpate!!")
+                    break
+                jogador = "O" if jogador == "X" else "X" 
+
+        jogar_novamente = input("\nDeseja jogar novamente? (s/n): ")
+        os.system("cls")
+        if jogar_novamente.lower() != "s":
+            print("Até a proxima. \n") 
+            break
 
 jogo_da_velha()
