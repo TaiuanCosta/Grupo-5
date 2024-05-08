@@ -1,3 +1,6 @@
+import os
+import random
+
 def cria_grade(grade_jogo):
     linhas = len(grade_jogo)
     colunas = len(grade_jogo[0])
@@ -15,14 +18,16 @@ def cria_grade(grade_jogo):
         print("+---", end="")
     print("+")
 
-def revela_palavra(grade, grade_jogo, palavra):
-    for letra in palavra:
-        for i in range(len(grade)):
-            for j in range(len(grade[0])):
-                if grade[i][j] == letra:
-                    grade_jogo[i][j] = letra
+def revela_palavra(grade, grade_jogo, letra):
+    letra_encontrada = False
+    for i in range(len(grade)):
+        for j in range(len(grade[0])):
+            if grade[i][j] == letra:
+                grade_jogo[i][j] = letra
+                letra_encontrada = True
+    return letra_encontrada
 
-def main():
+def jogo_1():
     grade = [
         ['*','*','*','a','c','e','r','o','l','a'],
         ['m','a','n','g','a','*','*','*','a','*'],
@@ -43,11 +48,92 @@ def main():
         ['*','*','*',' ',' ',' ',' ',' ',' ','*']
     ]
 
-    palavra = input("Digite uma palavra: ").lower()
+    while grade != grade_jogo:
 
-    revela_palavra(grade, grade_jogo, palavra)
+        cria_grade(grade_jogo)
+        letra = input("\nDigite uma letra: ").lower()
+        if revela_palavra(grade, grade_jogo, letra):
+            os.system("cls")
+            print("Letra certa\n")
+        else:
+            os.system("cls")
+            print("Letra errada! Jogue novamente.\n")
 
     cria_grade(grade_jogo)
+    print("Você ganhou.")
 
-if __name__ == "__main__":
-    main()
+
+
+def jogo_2():
+    grade = [
+        ['c', 'a', 'v', 'a', 'l', 'o', '*', '*', '*', '*'],
+        ['*', '*', 'a', '*', '*', '*', '*', '*', '*', '*'],
+        ['*', '*', 'c', '*', '*', '*', '*', 'g', '*', '*'],
+        ['*', 'g', 'a', 'l', 'i', 'n', 'h', 'a', '*', '*'],
+        ['*', '*', '*', 'o', '*', '*', '*', 't', '*', '*'],
+        ['*', '*', '*', 'b', '*', '*', '*', 'o', '*', '*'],
+        ['*', '*', '*', 'o', '*', '*', '*', '*', '*', '*']
+    ]
+
+
+    grade_jogo = [
+        [' ', ' ', ' ', ' ', ' ', ' ', '*', '*', '*', '*'],
+        ['*', '*', ' ', '*', '*', '*', '*', '*', '*', '*'],
+        ['*', '*', ' ', '*', '*', '*', '*', ' ', '*', '*'],
+        ['*', ' ', ' ', ' ', ' ', ' ', ' ', ' ', '*', '*'],
+        ['*', '*', '*', ' ', '*', '*', '*', ' ', '*', '*'],
+        ['*', '*', '*', ' ', '*', '*', '*', ' ', '*', '*'],
+        ['*', '*', '*', ' ', '*', '*', '*', '*', '*', '*']
+    ]
+
+
+    while grade != grade_jogo:
+
+        cria_grade(grade_jogo)
+        letra = input("\nDigite uma letra: ").lower()
+        if revela_palavra(grade, grade_jogo, letra):
+            os.system("cls")
+            print("Letra certa\n")
+        else:
+            os.system("cls")
+            print("Letra errada! Jogue novamente.\n")
+
+    cria_grade(grade_jogo)
+    print("Você ganhou.")
+
+def jogo_3():
+    grade = [
+        ['*', '*', '*', '*', 'b', 'o', 'l', 'a', '*', 't'],
+        ['*', '*', '*', '*', '*', '*', '*', 'p', '*', 'r'],
+        ['*', '*', 'c', 'h', 'u', 't', 'e', 'i', 'r', 'a'],
+        ['*', '*', 'a', '*', '*', '*', '*', 't', '*', 'v'],
+        ['c', 'a', 'm', 'i', 's', 'a', ' ', 'o', ' ', 'e'],
+        ['*', '*', 'p', '*', '*', '*', '*', '*', '*', '*'],
+        ['*', '*', 'o', '*', '*', '*', '*', '*', '*', '*']
+        ]
+
+
+    grade_jogo = [
+        ['*', '*', '*', '*', ' ', ' ', ' ', ' ', '*', ' '],
+        ['*', '*', '*', '*', '*', '*', '*', ' ', '*', ' '],
+        ['*', '*', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '],
+        ['*', '*', ' ', '*', '*', '*', '*', ' ', '*', ' '],
+        [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '],
+        ['*', '*', ' ', '*', '*', '*', '*', '*', '*', '*'],
+        ['*', '*', ' ', '*', '*', '*', '*', '*', '*', '*']
+    ]
+
+    while grade != grade_jogo:
+
+        cria_grade(grade_jogo)
+        letra = input("\nDigite uma letra: ").lower()
+        if revela_palavra(grade, grade_jogo, letra):
+            os.system("cls")
+            print("Letra certa\n")
+        else:
+            os.system("cls")
+            print("Letra errada! Jogue novamente.\n")
+
+    cria_grade(grade_jogo)
+    print("Você ganhou.")
+
