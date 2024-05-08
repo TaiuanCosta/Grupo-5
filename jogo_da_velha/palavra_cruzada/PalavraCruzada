@@ -52,8 +52,15 @@ def jogo_1():
     while grade != grade_jogo:
 
         cria_grade(grade_jogo)
-        print("\nDica: o tema desse jogo são frutas ")
-        letra = input("\nDigite uma letra ou uma palavra:").lower()
+        print("Dica: o tema desse jogo são frutas \n")
+        print("1.Rica em vitamina C.",)
+        print("2.Fruta tropical, rica em vitamina A.",)
+        print("3.Fonte de vitamina C, com polpa rosada.",)
+        print("4.Rica em potássio, tem casca amarela.",)
+        print("5.Fruta cítrica, fonte de vitamina C.",)
+        print("6.Fruta suculenta, alta em água.",)
+        print("7.Fonte de antioxidantes, usado em chocolates.")
+        letra = input("\nDigite uma letra:").lower()
         if revela_palavra(grade, grade_jogo, letra):
             os.system("cls")
             print("Letra certa\n")
@@ -62,7 +69,7 @@ def jogo_1():
             print("Letra errada! Jogue novamente.\n")
 
     cria_grade(grade_jogo)
-    print("Você ganhou.")
+    print("\nVocê ganhou.\n")
 
 
 
@@ -92,6 +99,12 @@ def jogo_2():
     while grade != grade_jogo:
 
         cria_grade(grade_jogo)
+        print("Dica: o tema desse jogo são animais. \n")
+        print("1.Animal forte e rápido.",)
+        print("2.Ave que produz ovos.",)
+        print("3.Animal de estimação independente.",)
+        print("4.Carnívoro selvagem em matilha.",)
+        print("5.Produz leite e carne.",)
         letra = input("\nDigite uma letra: ").lower()
         if revela_palavra(grade, grade_jogo, letra):
             os.system("cls")
@@ -128,6 +141,14 @@ def jogo_3():
     while grade != grade_jogo:
 
         cria_grade(grade_jogo)
+        print("Dica: o tema desse jogo é futebol. \n")
+        print("1.Objeto principal do jogo.")
+        print("2.Instrumento usado pelo árbitro para sinalizar faltas.")
+        print("3.Estrutura onde se marca gol.")
+        print("4.Calçado específico para o esporte.")
+        print("5.Superfície onde o jogo é disputado.")
+        print("6.Vestimenta dos jogadores, identificando suas equipes.")
+
         letra = input("\nDigite uma letra: ").lower()
         if revela_palavra(grade, grade_jogo, letra):
             os.system("cls")
