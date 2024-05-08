@@ -27,6 +27,7 @@ def revela_palavra(grade, grade_jogo, letra):
                 letra_encontrada = True
     return letra_encontrada
 
+
 def jogo_1():
     grade = [
         ['*','*','*','a','c','e','r','o','l','a'],
@@ -51,7 +52,8 @@ def jogo_1():
     while grade != grade_jogo:
 
         cria_grade(grade_jogo)
-        letra = input("\nDigite uma letra: ").lower()
+        print("\nDica: o tema desse jogo são frutas ")
+        letra = input("\nDigite uma letra ou uma palavra:").lower()
         if revela_palavra(grade, grade_jogo, letra):
             os.system("cls")
             print("Letra certa\n")
@@ -136,4 +138,32 @@ def jogo_3():
 
     cria_grade(grade_jogo)
     print("Você ganhou.")
+    
 
+
+
+def escolher_cenario():
+    while True:
+        print("Escolha o cenário de jogo:")
+        print("1. Cenário 1")
+        print("2. Cenário 2")
+        print("3. Cenário 3")
+        escolha = input("Digite o número do cenário ou 'x' para sair: ")
+        
+        if escolha.lower() == 'x':
+            print("Até logo!")
+            return
+        elif escolha == '1':
+            jogo_1()
+        elif escolha == '2':
+            jogo_2()
+        elif escolha == '3':
+            jogo_3()
+        else:
+            print("Escolha inválida. Por favor, escolha um número de 1 a 3 ou 'x' para sair.")
+
+
+escolher_cenario()
+
+
+    
