@@ -137,7 +137,7 @@ def jogo_2():
             print("Palavra não encontrada! Jogue novamente.\n")
 
     cria_grade(grade_jogo)
-    print("Você ganhou.")
+    print("\nVocê ganhou.\n")
 
 def jogo_3():
     grade = [
@@ -145,7 +145,7 @@ def jogo_3():
         ['*', '*', '*', '*', '*', '*', '*', 'p', '*', 'r'],
         ['*', '*', 'c', 'h', 'u', 't', 'e', 'i', 'r', 'a'],
         ['*', '*', 'a', '*', '*', '*', '*', 't', '*', 'v'],
-        ['c', 'a', 'm', 'i', 's', 'a', ' ', 'o', ' ', 'e'],
+        ['c', 'a', 'm', 'i', 's', 'a', '*', 'o', '*', 'e'],
         ['*', '*', 'p', '*', '*', '*', '*', '*', '*', '*'],
         ['*', '*', 'o', '*', '*', '*', '*', '*', '*', '*']
         ]
@@ -156,7 +156,7 @@ def jogo_3():
         ['*', '*', '*', '*', '*', '*', '*', ' ', '*', ' '],
         ['*', '*', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '],
         ['*', '*', ' ', '*', '*', '*', '*', ' ', '*', ' '],
-        [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '],
+        [' ', ' ', ' ', ' ', ' ', ' ', '*', ' ', '*', ' '],
         ['*', '*', ' ', '*', '*', '*', '*', '*', '*', '*'],
         ['*', '*', ' ', '*', '*', '*', '*', '*', '*', '*']
     ]
@@ -185,7 +185,7 @@ def jogo_3():
             print("Palavra não encontrada! Jogue novamente.\n")
 
     cria_grade(grade_jogo)
-    print("Você ganhou.")
+    print("\nVocê ganhou.\n")
     
 
 
@@ -193,14 +193,14 @@ def jogo_3():
 def escolher_cenario():
     while True:
         print("Escolha o cenário de jogo: ")
-        print("1. Cenário 1")
-        print("2. Cenário 2")
-        print("3. Cenário 3")
-        escolha = input("Digite o número do cenário ou 'x' para sair: ")
-        
+        print("(1) - Cenário 1")
+        print("(2) - Cenário 2")
+        print("(3) - Cenário 3")
+        escolha = input("(x) - Para sair: ")
+        os.system("cls")
         if escolha.lower() == 'x':
             print("Obrigado por jogar, até a próxima!")
-            return
+            return #Pode ser substituido por "Break"
         elif escolha == '1':
             jogo_1()
         elif escolha == '2':
