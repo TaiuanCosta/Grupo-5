@@ -4,21 +4,21 @@ def cria_grade(grade_jogo):
     linhas = len(grade_jogo)
     colunas = len(grade_jogo[0])
 
-    # Print top border
+  
     print("╔" + "═══╦" * (colunas - 1) + "═══╗")
 
-    # Print content with left and right borders
+
     for i in range(linhas):
         for j in range(colunas):
             if grade_jogo[i][j] == '*':
                 print("║ * ", end="")
             else:
-                print(f"║ \033[1;31m{grade_jogo[i][j]}\033[0m ", end="")  # Red color for letters
+                print(f"║ \033[1;31m{grade_jogo[i][j]}\033[0m ", end="")  
         print("║")
-        if i != linhas - 1:  # Skip bottom border for the last row
+        if i != linhas - 1: 
             print("╠" + "═══╬" * (colunas - 1) + "═══╣")
 
-    # Print bottom border (same as top border)
+   
     print("╚" + "═══╩" * (colunas - 1) + "═══╝")
 
 
@@ -28,13 +28,13 @@ def revela_palavra(grade, grade_jogo, palavra):
     for i in range(len(grade)):
         for j in range(len(grade[0])):
             if grade[i][j] == palavra[0]:
-                # Check if the whole word can fit horizontally
+ 
                 if j + len(palavra) <= len(grade[0]) and \
                    all(grade[i][j+k] == palavra[k] for k in range(len(palavra))):
                     for k in range(len(palavra)):
                         grade_jogo[i][j+k] = palavra[k]
                     palavra_encontrada = True
-                # Check if the whole word can fit vertically
+              
                 if i + len(palavra) <= len(grade) and \
                    all(grade[i+k][j] == palavra[k] for k in range(len(palavra))):
                     for k in range(len(palavra)):
