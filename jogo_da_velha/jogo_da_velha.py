@@ -78,7 +78,7 @@ def jogo_da_velha():
                     break
                 jogador = "O" if jogador == "X" else "X" 
 
-        jogar_novamente = input("\nDeseja jogar novamente? (s/n): ")
+        jogar_novamente = input("\nDeseja jogar novamente? (s/n): ").lower()
         os.system("cls")
         if jogar_novamente.lower() != "s":
             print("Até a proxima. \n") 
