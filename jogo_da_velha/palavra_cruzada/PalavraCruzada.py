@@ -3,8 +3,6 @@ import os
 def cria_grade(grade_jogo):
     linhas = len(grade_jogo)
     colunas = len(grade_jogo[0])
-
-    # Print top border
     print("╔" + "═══╦" * (colunas - 1) + "═══╗")
 
     
@@ -13,12 +11,12 @@ def cria_grade(grade_jogo):
             if grade_jogo[i][j] == '*':
                 print("║ * ", end="")
             else:
-                print(f"║ \033[1;31m{grade_jogo[i][j]}\033[0m ", end="")  # Red color for letters
+                print(f"║ \033[1;31m{grade_jogo[i][j]}\033[0m ", end="")  
         print("║")
-        if i != linhas - 1:  # Skip bottom border for the last row
+        if i != linhas - 1:
             print("╠" + "═══╬" * (colunas - 1) + "═══╣")
 
-    # Print bottom border (same as top border)
+
     print("╚" + "═══╩" * (colunas - 1) + "═══╝")
 
 
