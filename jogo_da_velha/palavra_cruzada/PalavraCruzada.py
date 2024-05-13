@@ -1,7 +1,5 @@
 import os
 
-import os
-
 def cria_grade(grade_jogo):
     linhas = len(grade_jogo)
     colunas = len(grade_jogo[0])
