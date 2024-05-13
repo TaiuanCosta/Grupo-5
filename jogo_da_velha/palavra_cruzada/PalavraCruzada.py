@@ -1,22 +1,30 @@
 import os
 
+import os
+
 def cria_grade(grade_jogo):
     linhas = len(grade_jogo)
     colunas = len(grade_jogo[0])
 
-   
-    print("╔" + "═══╦" * (colunas - 1) + "═══╗")
+    print("   ", end="")
+    for col in range(colunas):
+        print(f" {chr(col + 65)} ", end="")
+    print()
+
+    print("  ╔" + "═══╦" * (colunas - 1) + "═══╗")
     for i in range(linhas):
+        print(f"{i + 1:2}║", end="")
         for j in range(colunas):
             if grade_jogo[i][j] == '*':
-                print("║ * ", end="")
+                print(" * ", end="")
             else:
-                print(f"║ \033[94m{grade_jogo[i][j]}\033[0m ", end="") 
+                print(f" \033[94m{grade_jogo[i][j]}\033[0m ", end="")
+            if j != colunas - 1:
+                print("║", end="")
         print("║")
         if i != linhas - 1:  
-            print("╠" + "═══╬" * (colunas - 1) + "═══╣")
-    print("╚" + "═══╩" * (colunas - 1) + "═══╝")
-
+            print("  ╠" + "═══╬" * (colunas - 1) + "═══╣")
+    print("  ╚" + "═══╩" * (colunas - 1) + "═══╝")
 
 
 def revela_palavra(grade, grade_jogo, palavra):
