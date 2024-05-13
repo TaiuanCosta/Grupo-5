@@ -166,7 +166,7 @@ def jogo_3():
         print("Dica: o tema desse jogo é futebol. \n")
         print("1.Objeto principal do jogo.")
         print("2.Instrumento usado pelo árbitro para sinalizar faltas.")
-        print("3.Estrutura onde se marca gol.")
+        print("3.Estrutura onde que compõem se marca gol.")
         print("4.Calçado específico para o esporte.")
         print("5.Superfície onde o jogo é disputado.")
         print("6.Vestimenta dos jogadores, identificando suas equipes.")
