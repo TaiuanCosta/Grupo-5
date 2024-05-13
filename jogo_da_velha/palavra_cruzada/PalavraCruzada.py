@@ -3,20 +3,18 @@ import os
 def cria_grade(grade_jogo):
     linhas = len(grade_jogo)
     colunas = len(grade_jogo[0])
-    print("╔" + "═══╦" * (colunas - 1) + "═══╗")
 
-    
+   
+    print("╔" + "═══╦" * (colunas - 1) + "═══╗")
     for i in range(linhas):
         for j in range(colunas):
             if grade_jogo[i][j] == '*':
                 print("║ * ", end="")
             else:
-                print(f"║ \033[1;31m{grade_jogo[i][j]}\033[0m ", end="")  
+                print(f"║ \033[94m{grade_jogo[i][j]}\033[0m ", end="") 
         print("║")
-        if i != linhas - 1:
+        if i != linhas - 1:  
             print("╠" + "═══╬" * (colunas - 1) + "═══╣")
-
-
     print("╚" + "═══╩" * (colunas - 1) + "═══╝")
 
 
@@ -63,7 +61,7 @@ def jogo_1():
     while grade != grade_jogo:
 
         cria_grade(grade_jogo)
-        print("\nREGRA!: DIGITE NO MINIMO 4 LETRAS PARA VÁLIDAR SUA JOGADA\n")
+        print("\033[91m\nREGRA!: DIGITE NO MINIMO 5 LETRAS PARA VÁLIDAR SUA JOGADA\n\033[0m")
         print("Dica: o tema desse jogo são frutas \n")
         print("1.Rica em vitamina C.",)
         print("2.Fruta tropical, rica em vitamina A.",)
@@ -79,10 +77,10 @@ def jogo_1():
             continue
         if revela_palavra(grade, grade_jogo, palavra):
             os.system("cls")
-            print("Palavra encontrada!\n")
+            print("\033[92mPalavra encontrada!\033[0m\n")
         else:
             os.system("cls")
-            print("Palavra não encontrada! Jogue novamente.\n")
+            print("\033[93mPalavra não encontrada! Jogue novamente.\033[0m\n")
 
     cria_grade(grade_jogo)
     print("\nVocê ganhou.\n")
@@ -115,7 +113,7 @@ def jogo_2():
     while grade != grade_jogo:
 
         cria_grade(grade_jogo)
-        print("\nREGRA!: DIGITE NO MINIMO 3 LETRAS PARA VÁLIDAR SUA JOGADA\n")
+        print("\033[91m\nREGRA!: DIGITE NO MINIMO 4 LETRAS PARA VÁLIDAR SUA JOGADA\n\033[0m")
         print("Dica: o tema desse jogo são animais. \n")
         print("1.Animal forte e rápido.",)
         print("2.Ave que produz ovos.",)
@@ -129,10 +127,10 @@ def jogo_2():
             continue
         if revela_palavra(grade, grade_jogo, palavra):
             os.system("cls")
-            print("Palavra encontrada!\n")
+            print("\033[92mPalavra encontrada!\033[0m\n")
         else:
             os.system("cls")
-            print("Palavra não encontrada! Jogue novamente.\n")
+            print("\033[93mPalavra não encontrada! Jogue novamente.\033[0m\n")
 
     cria_grade(grade_jogo)
     print("\nVocê ganhou.\n")
@@ -162,11 +160,11 @@ def jogo_3():
     while grade != grade_jogo:
 
         cria_grade(grade_jogo)
-        print("\nREGRA!: DIGITE NO MINIMO 3 LETRAS PARA VÁLIDAR SUA JOGADA\n")
+        print("\033[91m\nREGRA!: DIGITE NO MINIMO 4 LETRAS PARA VÁLIDAR SUA JOGADA\n\033[0m")
         print("Dica: o tema desse jogo é futebol. \n")
         print("1.Objeto principal do jogo.")
         print("2.Instrumento usado pelo árbitro para sinalizar faltas.")
-        print("3.Estrutura onde que compõem se marca gol.")
+        print("3.Estrutura onde se marca gol.")
         print("4.Calçado específico para o esporte.")
         print("5.Superfície onde o jogo é disputado.")
         print("6.Vestimenta dos jogadores, identificando suas equipes.")
@@ -178,10 +176,10 @@ def jogo_3():
             continue
         if revela_palavra(grade, grade_jogo, palavra):
             os.system("cls")
-            print("Palavra encontrada!\n")
+            print("\033[92mPalavra encontrada!\033[0m\n")
         else:
             os.system("cls")
-            print("Palavra não encontrada! Jogue novamente.\n")
+            print("\033[93mPalavra não encontrada! Jogue novamente.\033[0m\n")
 
     cria_grade(grade_jogo)
     print("\nVocê ganhou.\n")
