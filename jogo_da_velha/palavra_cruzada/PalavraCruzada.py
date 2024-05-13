@@ -6,7 +6,7 @@ def cria_grade(grade_jogo):
 
     print("   ", end="")
     for col in range(colunas):
-        print(f" {chr(col + 65)} ", end="")
+        print(f" {chr(col + 65)} ", end=" ")
     print()
 
     print("  ╔" + "═══╦" * (colunas - 1) + "═══╗")
