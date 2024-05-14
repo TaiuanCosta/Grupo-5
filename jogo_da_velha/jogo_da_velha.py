@@ -7,10 +7,13 @@ grade = [
 ]
 
 def grade_jogo(grade):  
+    print("    0   1   2")
+    print("  ┌───┬───┬───┐")
     for i in range(len(grade)):
-        print(" " + " | ".join(grade[i]))
+        print(f"{i} │ " + " │ ".join(grade[i]) + " │ ")
         if i < len(grade) - 1:
-            print("---+---+---")
+            print("  ├───┼───┼───┤")
+    print("  └───┴───┴───┘")
 
 
 def vencedor(grade, jogador):
@@ -65,6 +68,7 @@ def jogo_da_velha():
             if linha < 0 or linha > 2 or coluna < 0 or coluna > 2: 
                 print("Jogada inválida. Jogue novamente! \n")
                 continue
+            
             if jogar_(grade, jogador, linha, coluna):
                 if vencedor(grade, jogador):
                     os.system("cls")
