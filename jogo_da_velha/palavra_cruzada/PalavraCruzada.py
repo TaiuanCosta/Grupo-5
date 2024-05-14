@@ -11,7 +11,7 @@ def cria_grade(grade_jogo):
 
     print("  ╔" + "═══╦" * (colunas - 1) + "═══╗")
     for i in range(linhas):
-        print(f"{i + 1:2}║", end="")
+        print(f"{i + 1:2}║", end="") 
         for j in range(colunas):
             if grade_jogo[i][j] == '*':
                 print(" * ", end="")
@@ -25,22 +25,22 @@ def cria_grade(grade_jogo):
     print("  ╚" + "═══╩" * (colunas - 1) + "═══╝")
 
 
-def revela_palavra(grade, grade_jogo, palavra):
-    palavra_encontrada = False
-    for i in range(len(grade)):
-        for j in range(len(grade[0])):
-            if grade[i][j] == palavra[0]:
+def revela_palavra(grade, grade_jogo, palavra): #representa a grade das palavras e as das escondidas e a tentativa de acertos 
+    palavra_encontrada = False #confirma se a palavra foi encontrada
+    for i in range(len(grade)): #percorre a linha
+        for j in range(len(grade[0])): #percorre as colunas
+            if grade[i][j] == palavra[0]: #verifica se a primeira letra da palavra digitada é igual a da grade
                 if j + len(palavra) <= len(grade[0]) and \
-                   all(grade[i][j+k] == palavra[k] for k in range(len(palavra))):
+                   all(grade[i][j+k] == palavra[k] for k in range(len(palavra))): #esta linha verifica se é possível que a palavra esteja horizontalmente a partir da posição
                     for k in range(len(palavra)):
-                        grade_jogo[i][j+k] = palavra[k]
+                        grade_jogo[i][j+k] = palavra[k] #compara o tamanho da palavra digitada na vertical utilizando o indice 'j'
                     palavra_encontrada = True
                 if i + len(palavra) <= len(grade) and \
-                   all(grade[i+k][j] == palavra[k] for k in range(len(palavra))):
+                   all(grade[i+k][j] == palavra[k] for k in range(len(palavra))): #esta linha verifica se é possível que a palavra esteja verticalmente a partir da posição 
                     for k in range(len(palavra)):
-                        grade_jogo[i+k][j] = palavra[k]
+                        grade_jogo[i+k][j] = palavra[k] #compara o tamanho da palavra digitada na vertical utilizando o indice 'i'
                     palavra_encontrada = True
-    return palavra_encontrada
+    return palavra_encontrada #faz a substituição da grade se a palavra atender aos requisitos
 
 
 def jogo_1():
@@ -64,7 +64,7 @@ def jogo_1():
         ['*','*','*',' ',' ',' ',' ',' ',' ','*']
     ]
 
-    while grade != grade_jogo:
+    while grade != grade_jogo: #faz com que o laço rode enquando as grades estiverem diferentes
 
         cria_grade(grade_jogo)
         print("\033[91m\nREGRA!: DIGITE NO MINIMO 5 LETRAS PARA VÁLIDAR SUA JOGADA\n\033[0m")
@@ -78,18 +78,18 @@ def jogo_1():
         print("(2 - A).Grande e redondo, com casca amarela e polpa branca parecida com melancia.\033[33m(5 - letras)\033[0m",)
         print("(1 - E).Fonte de antioxidantes, usado em chocolates.\033[33m(5 - letras)\033[0m")
         palavra = input("\nDigite uma palavra: ").lower()
-        if len(palavra) == 1 or len(palavra) == 2 or len(palavra) == 3 or len(palavra) == 4:
+        if len(palavra) == 1 or len(palavra) == 2 or len(palavra) == 3 or len(palavra) == 4: #limita a quantidade de letras digitadas
             os.system("cls")
-            print("Por favor, digite uma palavra, não uma única letra. Tente novamente.\n")
+            print("Por favor, digite uma palavra. Tente novamente.\n")
             continue
-        if revela_palavra(grade, grade_jogo, palavra):
+        if revela_palavra(grade, grade_jogo, palavra): #mostra a grade com as palavras acertadas dentro dela
             os.system("cls")
             print("\033[92mPalavra encontrada!\033[0m\n")
         else:
             os.system("cls")
             print("\033[93mPalavra não encontrada! Jogue novamente.\033[0m\n")
 
-    cria_grade(grade_jogo)
+    cria_grade(grade_jogo) #puxa a grade jogo completra no final
     print("\nVocê ganhou.\n")
 
 
@@ -117,7 +117,7 @@ def jogo_2():
     ]
 
 
-    while grade != grade_jogo:
+    while grade != grade_jogo: 
 
         cria_grade(grade_jogo)
         print("\033[91m\nREGRA!: DIGITE NO MINIMO 4 LETRAS PARA VÁLIDAR SUA JOGADA\n\033[0m")
@@ -131,7 +131,7 @@ def jogo_2():
         palavra = input("\nDigite uma palavra: ").lower()
         if len(palavra) == 1 or len(palavra) == 2 or len(palavra) == 3:
             os.system("cls")
-            print("Por favor, digite uma palavra, não uma única letra. Tente novamente.\n")
+            print("Por favor, digite uma palavra. Tente novamente.\n")
             continue
         if revela_palavra(grade, grade_jogo, palavra):
             os.system("cls")
@@ -181,7 +181,7 @@ def jogo_3():
         palavra = input("\nDigite uma palavra: ").lower()
         if len(palavra) == 1 or len(palavra) == 2 or len(palavra) == 3:
             os.system("cls")
-            print("Por favor, digite uma palavra, não uma única letra. Tente novamente.\n")
+            print("Por favor, digite uma palavra. Tente novamente.\n")
             continue
         if revela_palavra(grade, grade_jogo, palavra):
             os.system("cls")
