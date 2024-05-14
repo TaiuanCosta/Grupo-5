@@ -121,8 +121,8 @@ def jogo_2():
 
         cria_grade(grade_jogo)
         print("\033[91m\nREGRA!: DIGITE NO MINIMO 4 LETRAS PARA VÁLIDAR SUA JOGADA\n\033[0m")
-        print("Dica: o tema desse jogo são animais. \n")
-        print("Dica2: Os () do inicio indicam a posição inicial da primeira letra de cada palavra! \n")
+        print("Dica.1: o tema desse jogo são animais. \n")
+        print("Dica.2: Os () do inicio indicam a posição inicial da primeira letra de cada palavra! \n")
         print("(1 - A).Animal forte e rápido.",)
         print("(4 - B).Ave que produz ovos.",)
         print("(3 - H).Animal de estimação independente.",)
