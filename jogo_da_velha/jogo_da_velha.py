@@ -7,10 +7,10 @@ grade = [
 ]
 
 def grade_jogo(grade):  
-    print("    0   1   2")
+    print("    1   2   3")
     print("  ┌───┬───┬───┐")
     for i in range(len(grade)):
-        print(f"{i} │ " + " │ ".join(grade[i]) + " │ ")
+        print(f"{i+1} │ " + " │ ".join(grade[i]) + " │ ")
         if i < len(grade) - 1:
             print("  ├───┼───┼───┤")
     print("  └───┴───┴───┘")
@@ -34,8 +34,8 @@ def vencedor(grade, jogador):
 
 
 def jogar_(grade, jogador, linha, coluna): 
-     if grade[linha][coluna] == " ":
-        grade[linha][coluna] = jogador
+     if grade[linha-1][coluna-1] == " ":
+        grade[linha-1][coluna-1] = jogador
         return True
      else:
           print("Essa posição já foi preenchida!! jogue novamente.")
@@ -61,11 +61,11 @@ def jogo_da_velha():
             print("Regra 3 - Se todas as posições forem ocupadas e nenhum jogador conseguir uma sequência de três símbolos iguais, termina em empate.\n\n")
             grade_jogo(grade)
             
-            linha = int(input(f"\nJogador ({jogador}) Digite a linha 0, 1, 2: "))
-            coluna = int(input(f"Jogador ({jogador}) Digite a coluna 0, 1, 2: "))
+            linha = int(input(f"\nJogador ({jogador}) Digite a linha 1, 2, 3: "))
+            coluna = int(input(f"Jogador ({jogador}) Digite a coluna 1, 2, 3: "))
             print("\n")
 
-            if linha < 0 or linha > 2 or coluna < 0 or coluna > 2: 
+            if linha < 1 or linha > 3 or coluna < 1 or coluna > 3: 
                 print("Jogada inválida. Jogue novamente! \n")
                 continue
             
