@@ -16,30 +16,30 @@ def grade_jogo(grade):
     print("  └───┴───┴───┘")
 
 
-def vencedor(grade, jogador):
+def vencedor(grade, jogador): #verifica se há um vencedor no jogo da velha e recebe o simbolo atual do 'jogador'
 
-    for linha in grade:
+    for linha in grade: #verifica se todos os elementos da linha são iguais ao símbolo do jogador atual
         if all(jogada == jogador for jogada in linha):
-            return True
+            return True #retorna verdadeiro e signica que o jogador ganhou se tiver uma sequencia de simbolos iguais em alguma linha
         
     
-    for coluna in range(3):
-        if all(grade[linha][coluna] == jogador for linha in range(3)):
-            return True
+    for coluna in range(3): #verifica se todos os elementos da coluna são iguais ao símbolo do jogador atual
+        if all(grade[linha][coluna] == jogador for linha in range(3)): 
+            return True #retorna verdadeiro e signica que o jogador ganhou se tiver uma sequencia de simbolos iguais em alguma coluna
         
 
-    if all(grade[i][i] == jogador for i in range(3)) or all(grade[i][2 - i] == jogador for i in range(3)):
-        return True
+    if all(grade[i][i] == jogador for i in range(3)) or all(grade[i][2 - i] == jogador for i in range(3)): #esta linha verifica se houve uma vitória na diagonal olhando a diagonal primaria, secundaria e terciaaria
+        return True #se tiver sequencia de simbolos iguais, vai ser verificador e exibido o vencedor
     
 
 
-def jogar_(grade, jogador, linha, coluna): 
-     if grade[linha-1][coluna-1] == " ":
+def jogar_(grade, jogador, linha, coluna): #permite jogada na grade, recebe o simbolo atual e coordena a jogada de acordo com a escola
+     if grade[linha-1][coluna-1] == " ": #verifica se algum posição esta sendo ocupada novamente
         grade[linha-1][coluna-1] = jogador
-        return True
+        return True #se sim, retorna a mensagem
      else:
           print("Essa posição já foi preenchida!! jogue novamente.")
-          return False
+          return False #se nao, segue o game
 
 
 def jogo_da_velha():
@@ -51,41 +51,42 @@ def jogo_da_velha():
             [" "," "," "]
         ]
 
-        jogador = "X" 
+        jogador = "X" #preedifinimos o jogador para facilitar na alternação entre 'O' e 'X'
         while True:
-            os.system("cls")
-            print("----------Jogo da Velha----------\n")
-            print("OBS!!: O x é o primeiro jogador\n")
-            print("Regra 1 - Escolha número entre: 0, 1 ou 2 para definir a sua linha e a coluna.")
-            print("Regra 2 - Conseguir formar uma linha reta ou diagonal de três símbolos iguais (X ou O).")
-            print("Regra 3 - Se todas as posições forem ocupadas e nenhum jogador conseguir uma sequência de três símbolos iguais, termina em empate.\n\n")
             grade_jogo(grade)
             
             linha = int(input(f"\nJogador ({jogador}) Digite a linha 1, 2, 3: "))
             coluna = int(input(f"Jogador ({jogador}) Digite a coluna 1, 2, 3: "))
             print("\n")
 
-            if linha < 1 or linha > 3 or coluna < 1 or coluna > 3: 
+            if linha < 1 or linha > 3 or coluna < 1 or coluna > 3: #invalida jogadas foram do codigo como números maior que 3 ou menor que 1
                 print("Jogada inválida. Jogue novamente! \n")
-                continue
+                continue #serve para o codigo não para e voltar do inicio
             
-            if jogar_(grade, jogador, linha, coluna):
-                if vencedor(grade, jogador):
+            if jogar_(grade, jogador, linha, coluna): #exibe a grade preencida com a jogada atual
+                if vencedor(grade, jogador):#exibe a grade quando houver algum vencedor
                     os.system("cls")
                     grade_jogo(grade)
                     print(f"\nO jogador ({jogador}) Venceu!!!")
                     break
-                elif " " not in [jogada for linha in grade for jogada in linha]:
+                elif " " not in [jogada for linha in grade for jogada in linha]: #verifica se houve empate, vai ver se tem algum espaço vázio na grade, se não, deu empate 
                     os.system("cls")
                     grade_jogo(grade)
                     print("\nEmpate!!")
-                    break
-                jogador = "O" if jogador == "X" else "X" 
+                    break #para o codigo totalmente, poderia ser um "return" tmb
+                jogador = "O" if jogador == "X" else "X" #altera entre os simbolos
 
         jogar_novamente = input("\nDeseja jogar novamente? (s/n): ").lower()
+        
+        
+        
         os.system("cls")
+        
+        
         if jogar_novamente.lower() != "s":
             print("Até a proxima. \n") 
             break
+        
+
 
 jogo_da_velha()
