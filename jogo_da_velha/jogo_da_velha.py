@@ -54,7 +54,8 @@ def jogo_da_velha():
         jogador = "X" #preedifinimos o jogador para facilitar na alternação entre 'O' e 'X'
         while True:
             grade_jogo(grade)
-            
+
+            print("OBS: digiite de 1 a 3")
             linha = int(input(f"\nJogador ({jogador}) Digite a linha 1, 2, 3: "))
             coluna = int(input(f"Jogador ({jogador}) Digite a coluna 1, 2, 3: "))
             print("\n")
