@@ -58,6 +58,7 @@ def jogo_da_velha():
             linha = int(input(f"\nJogador ({jogador}) Digite a linha 1, 2, 3: "))
             coluna = int(input(f"Jogador ({jogador}) Digite a coluna 1, 2, 3: "))
             print("\n")
+            os.system("cls")
 
             if linha < 1 or linha > 3 or coluna < 1 or coluna > 3: #invalida jogadas foram do codigo como números maior que 3 ou menor que 1
                 print("Jogada inválida. Jogue novamente! \n")
